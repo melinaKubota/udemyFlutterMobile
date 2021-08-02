@@ -36,8 +36,10 @@ class Api {
       /*for (var video in dadosJson["items"]) {
         print("Resultado: " + video.toString());
       }*/
-      print(
-          "Resultado: " + dadosJson["items"][0]["snippet"]["title"].toString());
-    } else {}
+     /*  print(
+        "Resultado: " + dadosJson["items"][0]["snippet"]["title"].toString()); */
+    } else {
+
+    }
   }
 }

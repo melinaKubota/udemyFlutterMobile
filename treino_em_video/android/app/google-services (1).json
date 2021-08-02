@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1036513305459",
+    "project_id": "treino-em-video-38c2a",
+    "storage_bucket": "treino-em-video-38c2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036513305459:android:9fbfef92444bebd78a5b06",
+        "android_client_info": {
+          "package_name": "com.example.treino_em_video"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036513305459-aehig59rrpjnsbus1edb18jj059965bm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2u5zCIGIK3-hEHtPcpDyJwiv2LE8Sob4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036513305459-aehig59rrpjnsbus1edb18jj059965bm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
