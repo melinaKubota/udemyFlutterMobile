@@ -1,12 +1,14 @@
 class Video {
   String id;
   String titulo;
+  String descricao;
   String imagem;
   String canal;
 
   Video(
       {required this.id,
       required this.titulo,
+      required this.descricao,
       required this.imagem,
       required this.canal});
 
@@ -14,8 +16,9 @@ class Video {
     return Video(
       id: json["id"]["videoId"],
       titulo: json["snippet"]["title"],
+      descricao: '',
       imagem: json["snippet"] ["thumbnails"] ["high"] ["url"],
-      canal: json["snippet"]["channelId"],
+      canal: json["snippet"]["channelId"], 
       );
 
   }

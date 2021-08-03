@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/telas/biblioteca.dart';
-import 'package:youtube/telas/emAlta.dart';
 import 'package:youtube/telas/inicio.dart';
-import 'package:youtube/telas/inscricao.dart';
+import 'package:youtube/telas/emAlta.dart';
+import 'package:youtube/telas/inscricoes.dart';
+import 'package:youtube/telas/biblioteca.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
     List<Widget> telas = [ //"paginas" no meu app
       Inicio(),
       EmAlta(),
-      Inscricao(),
+      Incricoes(),
       Biblioteca()
     ];
     return Scaffold(
@@ -60,10 +60,10 @@ class _HomeState extends State<Home> {
             _indiceAtual = indice;
           });
         },
-        type: BottomNavigationBarType.fixed,
+        type: BottomNavigationBarType.fixed, //fixed define uma cor de fundo fixa(para até 3 botoes), shifting - troca a cor dos icones
         fixedColor: Colors.red,
         items: [
-          BottomNavigationBarItem(
+          BottomNavigationBarItem(// a barra que fica em baixo
               //backgroundColor: Colors.orange, (CASO QUEIRA QUE FIQUE NESSA CORES QUANDO SELECIONA, COLOCAR SHIFTING NO TYPE BOTTOM NAVIGATOR)
               title: Text("Inicio"),
               icon: Icon(Icons.home)),
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
               icon: Icon(Icons.subscriptions)),
           BottomNavigationBarItem(
               //backgroundColor: Colors.green,
-              title: Text("Bibliotecas"),
+              label: Text("Bibliotecas"),
               icon: Icon(Icons.folder)),
         ],
       ),

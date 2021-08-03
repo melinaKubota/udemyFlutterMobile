@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-class Inscricao extends StatefulWidget {
+class Incricoes extends StatefulWidget {
 
   @override
-  _InscricaoState createState() => _InscricaoState();
+  _IncricoesState createState() => _IncricoesState();
 }
 
-class _InscricaoState extends State<Inscricao> {
+class _IncricoesState extends State<Incricoes> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       child: Center(
+      child: Center(
         child: Text(
-        "Inscrições",
+        "Incricoes",
         style: TextStyle(
           fontSize: 25
           ),
