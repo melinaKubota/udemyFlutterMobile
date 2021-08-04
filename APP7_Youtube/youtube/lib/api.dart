@@ -9,7 +9,6 @@ const URL_BASE = "https://www.googleapis.com/youtube/v3/";
 
 class Api {
   Future<List<Video>> pesquisar(String pesquisa)  async {
-    // ignore: unused_local_variable
     http.Response response = await http.get(Uri.parse(URL_BASE +
             "search"
                 "?part=snippet" //no primeiro eu coloco "?" nos outros coloco &

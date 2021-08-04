@@ -31,7 +31,7 @@ class _InicioState extends State<Inicio> {
               if (snapshot.hasData) {
                 return ListView.separated(
                   itemBuilder: (context, index){
-                    List<Video> videos = snapshot.data;
+                    List<Video>? videos = snapshot.data;
                     Video video = videos[
                       index
                     ];
@@ -45,10 +45,11 @@ class _InicioState extends State<Inicio> {
                              image: NetworkImage(video.imagem)
                          ),
                        ),
-                       ListTile(
+                       ListTile (
                          title: Text(video.titulo),
-                         subtitle: Text(video.descricao),
-                         )
+                         subtitle: Text(video.canal),
+                        ) 
+                       )
                       ],
                     );
                   },
@@ -65,7 +66,8 @@ class _InicioState extends State<Inicio> {
               }
               break;
           }
-        });
+        }
+      );
   }
 }
 
