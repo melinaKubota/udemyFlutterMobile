@@ -65,19 +65,19 @@ class _HomeState extends State<Home> {
         items: [
           BottomNavigationBarItem(// a barra que fica em baixo
               //backgroundColor: Colors.orange, (CASO QUEIRA QUE FIQUE NESSA CORES QUANDO SELECIONA, COLOCAR SHIFTING NO TYPE BOTTOM NAVIGATOR)
-              title: Text("Inicio"),
+              label: ("Inicio"),
               icon: Icon(Icons.home)),
           BottomNavigationBarItem(
               //backgroundColor: Colors.red,
-              title: Text("Em alta"),
+              label: ("Em alta"),
               icon: Icon(Icons.whatshot)),
           BottomNavigationBarItem(
               //backgroundColor: Colors.blue,
-              title: Text("Inscrições"),
+              label: ("Inscrições"),
               icon: Icon(Icons.subscriptions)),
           BottomNavigationBarItem(
               //backgroundColor: Colors.green,
-              label: Text("Bibliotecas"),
+              label: ("Bibliotecas"),
               icon: Icon(Icons.folder)),
         ],
       ),
