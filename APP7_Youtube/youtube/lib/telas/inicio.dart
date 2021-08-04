@@ -9,7 +9,7 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
-  _ListarVideos() async {
+  Future<List<Video>>listarVideos() async {
     Api api = Api();
     return api.pesquisar("");
   }
@@ -17,7 +17,8 @@ class _InicioState extends State<Inicio> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Video>>(
-        future: _ListarVideos(),
+        future: listarVideos(),
+        initialData: [],
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
@@ -25,49 +26,45 @@ class _InicioState extends State<Inicio> {
               return Center(
                 child: CircularProgressIndicator(),
               );
-              break;
+            /* break; */
             case ConnectionState.active:
             case ConnectionState.done:
               if (snapshot.hasData) {
                 return ListView.separated(
-                  itemBuilder: (context, index){
-                    List<Video>? videos = snapshot.data;
-                    Video video = videos[
-                      index
-                    ];
-                    return Column (
-                      children: [
-                       Container(
-                         height: 200,
-                         decoration: BoxDecoration(
-                           image: DecorationImage(
-                             fit: BoxFit.cover,
-                             image: NetworkImage(video.imagem)
-                         ),
-                       ),
-                       ListTile (
-                         title: Text(video.titulo),
-                         subtitle: Text(video.canal),
-                        ) 
-                       )
-                      ],
+                    itemBuilder: (context, index) {
+                      List<Video> videos = snapshot.data ?? []; //se nulo é igual a vazio
+                      Video video = videos[index];
+                      return Column(
+                        children: [
+                          Container(
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(video.imagem)),
+                            ),
+                            child: ListTile(
+                              title: Text(video.titulo),
+                              subtitle: Text(video.canal),
+                            ),
+                          )
+                        ],
+                      );
+                    },
+                    separatorBuilder: (context, index) => Divider(
+                          height: 2,
+                          color: Colors.grey,
+                        ),
+                    itemCount: snapshot.data?.length ?? 0//length
                     );
-                  },
-                  separatorBuilder: (context, index) => Divider (
-                    height: 2,
-                    color: Colors.grey, 
-                  ), 
-                  itemCount: snapshot.data.hashCode //length
-                ); 
               } else {
                 return Center(
                   child: Text("Nenhum dado a ser exibido!"),
                 );
               }
-              break;
+            /* break; */
           }
-        }
-      );
+        });
   }
 }
 
