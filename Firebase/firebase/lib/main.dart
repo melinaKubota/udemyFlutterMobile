@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  Firestore db = Firestore.instance;
+  FirebaseFirestore db = FirebaseFirestore.instance;
   /* db.collection("usuarios").document("001").setData({
     //salva ou atualiza, basta colocar o numero certo
     "nome": "Melina",
