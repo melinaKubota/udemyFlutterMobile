@@ -1,25 +1,58 @@
 import 'dart:html';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   //Inicializar o firebase
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(); 
+  FirebaseFirestore db = FirebaseFirestore.instance;
+  db.collection("usuarios").doc("005").set({
+    "nome": "Melina", 
+    "idade": "28",
+  });
+  
+  /* runApp(MyApp()); */
 
-  ToFirestore.instance
-    .collection("Usuarios"
-    .document("portuacao")
-  .setData("Melina": "25")
 
-  runApp(MyApp());
-}
+  DocumentReference ref = await db.collection("noticias").add({
+    "titulo": "Ondas de calor",
+    "descricao": "texto de exemplo...",
+  });
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
+  print("item salvo: " + ref.id);
+
+  db.collection("noticias").doc(" ").set({
+    "titulo": "Ondas de calor em São Paulo",
+    "descricao": "texto base",
   }
-}
+);
+
+DocumentSnapshot snapshot = await db.collection("usuarios").doc("001").get();
+
+  print("Dados:" + snapshot.data.toString());
+
+if (snapshot.data() != null) {
+    Map<String, dynamic> dados = snapshot.data as Map<String, dynamic>;
+    print("dados: " + dados["nome"] + "idade:" + dados["idade"]);
+  }
+  QuerySnapshot querySnapshot = await db.collection("usuarios").get();
+  print("Dados usuarios: " + querySnapshot.docs.toString());
+
+  for (DocumentSnapshot item in querySnapshot.docs) {
+    Map<String, dynamic> dados = item.data as Map<String, dynamic>;
+    print("Dados usuarios: " + dados["Nome"] + "-" + dados["idade"]);
+  }
+  db.collection('usuarios').snapshots().listen((event) {
+    for (DocumentSnapshot item in snapshot.data()) {
+      Map<String, dynamic> dados = item.data as Map<String, dynamic>;
+      print("dados usuarios:" + dados["nome"] + "-" + dados["idade"]);
+    }
+  },
+
+ /*  runApp(MaterialApp(
+    home: MyApp(),
+  )); */
+  );}
