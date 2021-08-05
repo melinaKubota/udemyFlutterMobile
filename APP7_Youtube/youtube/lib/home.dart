@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
               onPressed: () {
                 print("acao: conta");
               },
-              icon: Icon(Icons.account_circle)),
+              icon: Icon(Icons.account_circle)), 
         ],
       ),
       body: Container(
