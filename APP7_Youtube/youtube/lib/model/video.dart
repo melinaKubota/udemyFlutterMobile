@@ -19,7 +19,6 @@ class Video {
       descricao: '',
       imagem: json["snippet"] ["thumbnails"] ["high"] ["url"],
       canal: json["snippet"]["channelId"], 
-      );
-
+    );
   }
 }
